@@ -33,12 +33,12 @@ from sqlalchemy import text
 # ---- CONFIG ----
 MODEL_PATH = os.getenv(
     "PIPER_MODEL_ONNX",
-    "C:/Users/asifa/OneDrive/Desktop/sts-tts/backend/app/models/en_US-lessac-medium.onnx"
+    "../models/en_US-lessac-medium.onnx"
 )
 
 CONFIG_PATH = os.getenv(
     "PIPER_MODEL_CONFIG",
-    "C:/Users/asifa/OneDrive/Desktop/sts-tts/backend/app/models/en_US-lessac-medium.json"
+    "../models/en_US-lessac-medium.json"
 )
 
 # ---- Load voice once (VERY IMPORTANT) ----
