@@ -5,4 +5,4 @@ __pycache__/
 
 .env
 services_account.json
-services_account.b64
+service_account.b64
