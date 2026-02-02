@@ -1,29 +1,3 @@
-# import subprocess
-# import tempfile
-# import os
-
-# PIPER_MODEL = "en_US-lessac-medium.onnx"
-
-# def synthesize(text: str) -> bytes:
-#     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as f:
-#         out_path = f.name
-
-#     process = subprocess.Popen(
-#         ["piper", "--model", PIPER_MODEL, "--output_file", out_path],
-#         stdin=subprocess.PIPE,
-#         text=True
-#     )
-
-#     process.stdin.write(text)
-#     process.stdin.close()
-#     process.wait()
-
-#     with open(out_path, "rb") as f:
-#         audio = f.read()
-
-#     os.remove(out_path)
-#     return audio
-
 import os
 import io
 import wave
