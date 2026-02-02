@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Chatbot UI</title>
+
+    <!-- Font Awesome for Mic Icon -->
+    <link
+        rel="stylesheet "
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+<div class="chat-container">
+  <div class="chat-header">AI Voice Assistant</div>
+
+  <div class="chat-body" id="chat"></div>
+
+  <div class="chat-footer">
+    <input id="textInput" class="chat-input" placeholder="Type or speak..." />
+    <button id="micBtn" class="icon-btn mic"><i class="fas fa-microphone"></i></button>
+    <button id="sendBtn" class="icon-btn"><i class="fas fa-paper-plane"></i></button>
+    <button id="clearBtn" class="icon-btn thrash"><i class="fa-solid fa-trash" style="color: #ff0000;"></i></button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

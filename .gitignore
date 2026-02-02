@@ -1,0 +1,8 @@
+.vscode
+env/
+__pycache__/
+*.pyc
+
+.env
+services_account.json
+services_account.b64
