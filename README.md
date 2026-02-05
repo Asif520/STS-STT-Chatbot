@@ -97,7 +97,7 @@ HF_TOKEN=your_hugging_face_access_token
 ##### 3️⃣ Frontend Setup
 
 * Open frontend/index.html in browser
-(or servre using a static server)
+(or serve using a static server)
 
 ##### 🌐 Deployment (Huggingface Space)
 
