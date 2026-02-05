@@ -7,7 +7,8 @@ from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 from app.services.llm import ask_gemini
 from app.services.memory import get_memory
-from app.services.tts_piper import synthesize
+# from app.services.tts_piper import synthesize
+from app.services.tts_kokoro import synthesize
 from app.services.stt_whisper import audio_chunks_to_text
 
 # ---- FastAPI App ----
@@ -53,15 +54,24 @@ async def sts(ws: WebSocket, session_id: str):
                         
                         # ---------- LLM + TTS ----------
                         ai_text = ask_gemini(user_text, memory)
-                        audio_bytes = synthesize(ai_text)
+                        try:
+                            audio_bytes = synthesize(ai_text)
+                            if not audio_bytes:
+                                await ws.send_text(json.dumps({"error": "TTS generation failed"}))
+                                audio_chunks = []  # reset
+                                continue
+                            await ws.send_text(json.dumps({
+                                "text": ai_text,
+                                "has_audio": True
+                            }))
+                            await ws.send_bytes(audio_bytes)
+                            
+                            audio_chunks = []  # reset
                         
-                        await ws.send_text(json.dumps({
-                            "text": ai_text,
-                            "has_audio": True
-                        }))
-                        await ws.send_bytes(audio_bytes)
-                        
-                        audio_chunks = []  # reset for next utterance
+                        except Exception as e:
+                            print(f"TTS failed: {e}")
+                            await ws.send_text(json.dumps({"error": "Could not generate speech"}))
+                            continue
                     
                     else:  # plain text input (non-"END")
                         user_text = text
