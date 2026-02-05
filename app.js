@@ -13,7 +13,7 @@ const sessionId = crypto.randomUUID();
 const ws = new WebSocket(`ws://localhost:8000/ws/sts/${sessionId}`);
 ws.binaryType = "arraybuffer";
 
-const activeAnalysers = new Map(); // audio element → { analyser, animationId }
+const activeVisualizers = new Map(); // audio element → { analyser, animationId }
 let expectingAudio = false;
 let audioCtx, workletNode, source;
 let isRecording = false;
@@ -59,7 +59,7 @@ ws.onmessage = (e) => {
 /* ---------------- UI ---------------- */
 
 document.addEventListener('click', () => {
-  getSharedAudioContext();  // pre-resume on first interaction
+  initOrGetAudioContext();  // pre-resume on first interaction
 }, { once: true });
 
 async function initOrGetAudioContext() {
