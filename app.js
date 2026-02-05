@@ -10,7 +10,7 @@ const micIdleIcon = '<i class="fas fa-microphone"></i>';
 const micRecordingIcon = '<i class="fas fa-circle" style="color:red;"></i>';
 
 const sessionId = crypto.randomUUID();
-const ws = new WebSocket(`wss://asif988-sts-stt-backend.hf.space//ws/sts/${sessionId}`);
+const ws = new WebSocket(`wss://asif988-sts-stt-backend.hf.space/ws/sts/${sessionId}`);
 ws.binaryType = "arraybuffer";
 
 const activeVisualizers = new Map(); // audio element → { analyser, animationId }
@@ -441,4 +441,5 @@ clearBtn.onclick = () => {
     chat.innerHTML = "";
   }
 };
+
 
