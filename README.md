@@ -60,7 +60,7 @@ Browser (Audio Playback)
 
 * faster-whisper: Speech-to-Text
 
-* "Korkoro-82M" Model Inference (Text-to-Speech)
+* "Korkoro-82M" Model Inference (Text-to-Speech) from HF
 
 * Python 3.11
 
