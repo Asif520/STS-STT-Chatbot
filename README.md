@@ -85,7 +85,8 @@ cd STS-AI-Chatbot
 
 Create .env file:
 
-GOOGLE_API_KEY=your_gemini_api_key
+GOOGLE_API_KEY=your_gemini_api_key,
+
 HF_TOKEN=your_hugging_face_access_token
 
 
